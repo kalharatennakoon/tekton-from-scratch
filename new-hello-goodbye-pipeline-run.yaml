@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: new-hello-goodbye-pipeline-run
+  namespace: demo
+spec:
+  pipelineRef:
+    name: new-hello-goodbye-pipeline
+  params:
+  - name: username
+    value: "P1-username"
+  - name: message
+    value: "P2-message"
+    

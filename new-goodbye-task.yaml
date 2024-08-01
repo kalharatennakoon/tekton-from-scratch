@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: new-goodbye-task
+  namespace: demo
+spec:
+  params:
+  - name: message
+    type: string
+    default: "Goodbye!"
+  steps:
+    - name: goodbye-message
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Goodbye $(params.message)"

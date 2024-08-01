@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1
+kind: TaskRun
+metadata:
+  name: new-goodbye-task-run
+  namespace: demo
+spec:
+  taskRef:
+    name: new-goodbye-task
+  params:
+    - name: message
+      value: "KT"

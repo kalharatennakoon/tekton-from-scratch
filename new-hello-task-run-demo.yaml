@@ -1,0 +1,8 @@
+apiVersion: tekton.dev/v1
+kind: TaskRun
+metadata:
+  name: new-hello-task-run-demo
+  namespace: demo
+spec:
+  taskRef:
+    name: new-hello-task

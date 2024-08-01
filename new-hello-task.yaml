@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: new-hello-task
+  namespace: demo
+spec:
+  params:
+  - name: username
+    type: string
+    default: "Hello, world!"
+  steps:
+    - name: welcome-message
+      image: alpine
+      script: |
+        #!/bin/sh
+        echo "Welcome $(params.username)"

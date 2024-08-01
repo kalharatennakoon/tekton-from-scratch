@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1
+kind: TaskRun
+metadata:
+  name: new-hello-task-run
+  namespace: demo
+spec:
+  taskRef:
+    name: new-hello-task
+  params:
+    - name: username
+      value: "Kalhara Tennakoon"
