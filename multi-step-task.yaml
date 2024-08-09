@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: multi-step-task
+spec:
+  steps:
+    - name: step-one
+      image: ubuntu
+      script: |
+        echo "Step One: Installing curl"
+        apt-get update && apt-get install -y curl
+
+    - name: step-two
+      image: ubuntu
+      script: |
+        echo "Step Two: Fetching data"
+        curl https://example.com/data
+
+    - name: step-three
+      image: ubuntu
+      script: |
+        echo "Step Three: Processing data"
+        # Simulate data processing
+        echo "Data processed!"

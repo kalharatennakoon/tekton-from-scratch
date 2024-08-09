@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: user-pipeline-run
+spec:
+  pipelineRef:
+    name: user-pipeline
+  params:
+  - name: username
+    value: "Kalhara"

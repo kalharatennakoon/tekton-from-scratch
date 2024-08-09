@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: user-pipeline
+spec:
+  params:
+  - name: username
+    type: string
+  tasks:
+    - name: welcome-message
+      taskRef:
+        name: hello-world-task
+    - name: welcome-user
+      taskRef:
+        name: welcome-user-task
+      params:
+      - name: username
+        value: $(params.username)
+      runAfter:
+        - welcome-message
