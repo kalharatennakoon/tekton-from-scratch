@@ -1,14 +1,14 @@
 apiVersion: tekton.dev/v1
 kind: Pipeline
-metadate:
-  - name: git-clone-pipeline
+metadata:
+  name: git-clone-pipeline
 spec:
   tasks:
-    - name: clone-task
-      taskRef:
-        name: git-clone-task
-      params:
-        - name: git-url
-          value: "https://github.com/kalharatennakoon/tekton-from-scratch"
-        - name: revision
-          value: "main"
+  - name: clone-task
+    taskRef:
+      name: git-clone-task
+    params:
+    - name: git-url
+      value: "https://github.com/kalharatennakoon/tekton-from-scratch"
+    - name: revision
+      value: "main"
