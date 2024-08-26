@@ -1,0 +1,23 @@
+# This is a Tekton Task that clones a Git repo from GitHub
+
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: git-clone-task
+spec:
+  params:
+    - name: git-url
+      type: string
+      description: The URL of the Git repo to clone
+    - name: revision
+      type: string
+      description: The Git revision to checkout (eg. the specific branch name, tag, commit SHA).
+      default: main
+  steps:
+    - name: clone
+      image: alpine/git
+      script: |
+        #!/bin/sh
+        git clone $(params.git-url) /workspace/repo
+        cd /workspace/repo
+        git checkout $(params.revision)
